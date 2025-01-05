@@ -5,7 +5,9 @@ This project is created by Arda Çam, Sıla Aksan, Beyza Karadeniz and Ahmet Sal
 
 ## Problem 1 
 Problem: You are working as a data analyst for an e-commerce platform. Your task is to optimize the product listing by sorting products based on sales volume and user ratings. Implement and compare Merge Sort and Quick Sort algorithms to sort a dataset of product records
+
 To create new datasets simply run dataset_creator
+
 To run program install matplotlib by:
 ```
 pip install matplotlib
