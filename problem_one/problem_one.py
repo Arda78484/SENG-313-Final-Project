@@ -161,41 +161,39 @@ if __name__ == "__main__":
             }
         )
 
-    # Display results
-    print("\nExecution Time Comparison:")
-    print("Size\tMerge Sort Sales (s)\tQuick Sort Sales (s)\tMerge Sort Rating (s)\tQuick Sort Rating (s)")
-    for result in results:
-        print(
-            f"{result['Size']}\t{result['Merge Sort Sales (s)']:.6f}\t{result['Quick Sort Sales (s)']:.6f}\t"
-            f"{result['Merge Sort Rating (s)']:.6f}\t{result['Quick Sort Rating (s)']:.6f}"
-        )
+print("\nExecution Time Comparison:")
+print("Size\tMerge Sort Sales (s)\tQuick Sort Sales (s)\tMerge Sort Rating (s)\tQuick Sort Rating (s)")
+for result in results:
+    print(result)
 
-    # Visualization using matplotlib
-    sizes = [result["Size"] for result in results]
-    merge_sales = [result["Merge Sort Sales (s)"] for result in results]
-    quick_sales = [result["Quick Sort Sales (s)"] for result in results]
-    merge_ratings = [result["Merge Sort Rating (s)"] for result in results]
-    quick_ratings = [result["Quick Sort Rating (s)"] for result in results]
+# Extract sizes and timings from results
+sizes = [result['Size'] for result in results]
+merge_sales = [result['Merge Sort Sales (s)'] for result in results]
+quick_sales = [result['Quick Sort Sales (s)'] for result in results]
+merge_ratings = [result['Merge Sort Rating (s)'] for result in results]
+quick_ratings = [result['Quick Sort Rating (s)'] for result in results]
 
-    plt.figure(figsize=(10, 6))
+# Create a figure for the plots
+plt.figure(figsize=(12, 8))
 
-    # Plot for sales volume sorting
-    plt.subplot(2, 1, 1)
-    plt.plot(sizes, merge_sales, label="Merge Sort (Sales)", marker="o")
-    plt.plot(sizes, quick_sales, label="Quick Sort (Sales)", marker="o")
-    plt.title("Execution Time for Sorting by Sales Volume")
-    plt.xlabel("Dataset Size")
-    plt.ylabel("Time (s)")
-    plt.legend()
+# Plot for sales volume sorting
+plt.subplot(2, 1, 1)
+plt.plot(sizes, merge_sales, label="Merge Sort (Sales)", marker="o")
+plt.plot(sizes, quick_sales, label="Quick Sort (Sales)", marker="o")
+plt.title("Execution Time for Sorting by Sales Volume")
+plt.xlabel("Dataset Size")
+plt.ylabel("Time (s)")
+plt.legend()
 
-    # Plot for user rating sorting
-    plt.subplot(2, 1, 2)
-    plt.plot(sizes, merge_ratings, label="Merge Sort (Ratings)", marker="o")
-    plt.plot(sizes, quick_ratings, label="Quick Sort (Ratings)", marker="o")
-    plt.title("Execution Time for Sorting by User Ratings")
-    plt.xlabel("Dataset Size")
-    plt.ylabel("Time (s)")
-    plt.legend()
+# Plot for user rating sorting
+plt.subplot(2, 1, 2)
+plt.plot(sizes, merge_ratings, label="Merge Sort (Ratings)", marker="o")
+plt.plot(sizes, quick_ratings, label="Quick Sort (Ratings)", marker="o")
+plt.title("Execution Time for Sorting by User Ratings")
+plt.xlabel("Dataset Size")
+plt.ylabel("Time (s)")
+plt.legend()
 
-    plt.tight_layout()
-    plt.show()
+# Adjust layout and show the plot
+plt.tight_layout()
+plt.show()
